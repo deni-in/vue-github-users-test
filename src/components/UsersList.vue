@@ -1,25 +1,20 @@
 <template>
   <div class="list">
-    <div v-for="user in users" >
-      <div class="list__card">
-        <img v-bind:src="user.avatar_url" class="list__card-img">
-        <p>{{user.login}}</p>
-      </div>
-    </div>
+    <user-card v-for="user in users" :user="user" />
   </div>
 </template>
 
 <script>
+import UserCard from "./UserCard";
 export default {
-    props: {
-        users: {
-          type: Array,
-          required: true
-        }
-    }
-}
+  components: { UserCard },
+  props: {
+    users: {
+      type: Array,
+      required: true,
+    },
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

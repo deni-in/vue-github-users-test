@@ -2,7 +2,26 @@
   !*** css ../node_modules/css-loader/dist/cjs.js!../node_modules/vue-loader/dist/stylePostLoader.js!../node_modules/vue-loader/dist/index.js??ruleSet[1].rules[4].use[0]!./App.vue?vue&type=style&index=0&id=472cff63&lang=css ***!
   \********************************************************************************************************************************************************************************************************************************/
 
-.test {
-    color: red;
+.app {
+    max-width: 1140px;
+    margin: auto;
+    justify-content: center;
+}
+.content {
+    max-width: 80%;
+    margin: auto;
+    justify-content: center;
+}
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.list__card {
+    width: 250px;
+    text-align: center;
+}
+.list__card-img {
+    width: 100%;
 }
 
