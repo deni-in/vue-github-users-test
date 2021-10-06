@@ -1,9 +1,9 @@
 <template>
   <div class="app">
     <div class="content">
-      <UserSearch :login="login" @search="getUsers"/>
+      <UserSearch/>
       <div class="list">
-        <UsersList :users="users" />
+        <UsersList/>
       </div>
     </div>
   </div>
@@ -15,23 +15,6 @@ import UserSearch from './components/UserSearch';
 export default {
   name: "App.vue",
   components: { UserSearch, UsersList },
-  data() {
-    return {
-      users: [],
-      login: ''
-    }
-  },
-  methods :{
-    async getUsers(login) {
-      try {
-        const res = await fetch(`https://api.github.com/search/users?q=${login}`)
-        const data = await res.json()
-        this.users = data.items
-      } catch (e) {
-        console.log("Ошибка:" + e.message)
-      }
-    },
-  },
 }
 </script>
 

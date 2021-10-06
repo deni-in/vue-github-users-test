@@ -6,15 +6,19 @@
 
 <script>
 import UserCard from "./UserCard";
+import { mapState } from 'vuex';
 export default {
   components: { UserCard },
-  props: {
-    users: {
-      type: Array,
-      required: true,
-    },
-  },
+  computed:{
+    ...mapState({
+      users: state => state.users,
+      login: state => state.login,
+      loading: state => state.loading
+    })
+  }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

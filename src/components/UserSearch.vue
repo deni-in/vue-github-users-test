@@ -1,23 +1,32 @@
 <template>
   <div>
     <form @submit.prevent>
-      <my-input type="text" v-model="login"/>
+      <my-input
+          type="text"
+          :model-value="login"
+          @update:model-value="setLogin"
+      />
       <my-button @click="getUsers">Поиск</my-button>
     </form>
   </div>
 </template>
 
 <script>
+import { mapActions, mapMutations, mapState } from 'vuex';
+
 export default {
-  props: {
-    login: {
-      type: String
-    }
+  computed: {
+    ...mapState({
+      login: state => state.login
+    })
   },
   methods: {
-    async getUsers() {
-      this.$emit('search', this.login)
-    }
+    ...mapActions({
+      getUsers: 'getUsers'
+    }),
+    ...mapMutations({
+      setLogin: 'setLogin'
+    })
   }
 }
 </script>
