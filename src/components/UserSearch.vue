@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent>
+    <form @submit.prevent class="form">
       <my-input
           type="text"
           :model-value="login"
@@ -32,5 +32,9 @@ export default {
 </script>
 
 <style>
-
+  .form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 </style>

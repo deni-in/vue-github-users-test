@@ -7,7 +7,7 @@ export default createStore({
       users: [],
       login: '',
       loading: false,
-      page: 0,
+      page: 1,
       limit: 9,
       totalPages: 0
     }
@@ -33,12 +33,16 @@ export default createStore({
     },
     setIncrementPage(state) {
       state.page += 1
+    },
+    setResetPage(state) {
+      state.page = 1
     }
   },
   actions: {
     async getUsers({state, commit}) {
       try {
         commit('setLoading', true)
+        commit('setResetPage')
         const res = await axios.get(`https://api.github.com/search/users?q=${state.login}`, {
           params: {
             page: state.page,
@@ -55,7 +59,6 @@ export default createStore({
     },
     async getMoreUsers({state, commit}) {
       try {
-        commit('setLoading', true)
         commit('setIncrementPage')
         const res = await axios.get(`https://api.github.com/search/users?q=${state.login}`, {
           params: {
@@ -67,8 +70,6 @@ export default createStore({
         commit('setMoreUsers', res.data.items)
       } catch (e) {
         console.log("Ошибка:" + e.message)
-      } finally {
-        commit('setLoading', false)
       }
     },
   }

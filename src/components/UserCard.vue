@@ -1,7 +1,7 @@
 <template>
   <div class="list__card">
     <img v-bind:src="user.avatar_url" class="list__card-img" />
-    <p>{{ user.login }}</p>
+    <h3>{{ user.login }}</h3>
   </div>
 </template>
 
@@ -16,4 +16,14 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.list__card {
+  width: 250px;
+  text-align: center;
+}
+.list__card-img {
+  width: 100%;
+  border-radius: 100px;
+  border: solid black 1px;
+}
+</style>

@@ -1,7 +1,13 @@
 <template>
-  <div class="list">
-    <user-card v-for="user in users" :user="user" :key="user.id"/>
+  <div  v-if="users.length > 0">
+    <div>
+      <h3>Список пользователей</h3>
+    </div>
+    <div class="list">
+      <user-card v-for="user in users" :user="user" :key="user.id"/>
+    </div>
   </div>
+  <h3 v-else>Пусто</h3>
 </template>
 
 <script>
@@ -20,5 +26,9 @@ export default {
 </script>
 
 <style scoped>
-
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 </style>

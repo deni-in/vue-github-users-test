@@ -1,5 +1,5 @@
 <template>
- <input :value="modelValue" @input="updateInput" type="text" >
+ <input class="input" :value="modelValue" @input="updateInput" type="text" >
 </template>
 
 <script>
@@ -17,5 +17,9 @@ export default {
 </script>
 
 <style scoped>
-
+  .input {
+    width: 80%;
+    font-size: large;
+    text-align: center;
+  }
 </style>
