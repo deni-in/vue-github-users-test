@@ -9,7 +9,12 @@ export default createStore({
       loading: false,
       page: 1,
       limit: 9,
-      totalPages: 0
+      totalPages: 0,
+      selectedSort: '',
+      sortOptions: [
+        {value: 'bigToSmall', name: 'По убыванию'},
+        {value: 'smallToBig', name: 'По возрастанию'}
+      ]
     }
   },
   getters: {
@@ -36,6 +41,9 @@ export default createStore({
     },
     setResetPage(state) {
       state.page = 1
+    },
+    setSelectedSort(state, value) {
+      state.selectedSort = value
     }
   },
   actions: {
@@ -72,5 +80,23 @@ export default createStore({
         console.log("Ошибка:" + e.message)
       }
     },
+    async getSortedUsers({state, commit}) {
+      try {
+        commit('setLoading', true)
+        commit('setResetPage')
+        const res = await axios.get(`https://api.github.com/search/users?q=${state.login}+sort:repositories`, {
+          params: {
+            page: state.page,
+            per_page: state.limit
+          }
+        })
+        commit('setTotalPages', res.data.total_count)
+        commit('setUsers', res.data.items)
+      } catch (e) {
+        console.log("Ошибка:" + e.message)
+      } finally {
+        commit('setLoading', false)
+      }
+    }
   }
 })
