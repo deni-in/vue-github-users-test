@@ -44,6 +44,9 @@ export default createStore({
     },
     setSelectedSort(state, value) {
       state.selectedSort = value
+    },
+    setResetSelectedSort(state) {
+      state.selectedSort = ''
     }
   },
   actions: {
@@ -51,6 +54,7 @@ export default createStore({
       try {
         commit('setLoading', true)
         commit('setResetPage')
+        commit('setResetSelectedSort')
         const res = await axios.get(`https://api.github.com/search/users?q=${state.login}`, {
           params: {
             page: state.page,
@@ -70,6 +74,8 @@ export default createStore({
         commit('setIncrementPage')
         const res = await axios.get(`https://api.github.com/search/users?q=${state.login}`, {
           params: {
+            sort: state.selectedSort ? 'repositories' : null,
+            order: state.selectedSort === 'bigToSmall' ? 'desc' : 'asc',
             page: state.page,
             per_page: state.limit
           }
@@ -84,8 +90,10 @@ export default createStore({
       try {
         commit('setLoading', true)
         commit('setResetPage')
-        const res = await axios.get(`https://api.github.com/search/users?q=${state.login}+sort:repositories`, {
+        const res = await axios.get(`https://api.github.com/search/users?q=${state.login}`, {
           params: {
+            sort: 'repositories',
+            order: state.selectedSort === 'bigToSmall' ? 'desc' : 'asc',
             page: state.page,
             per_page: state.limit
           }

@@ -61,7 +61,7 @@ export default {
   },
   watch: {
     selectedSort(newValue) {
-      if (newValue === 'bigToSmall') {
+      if (newValue !== '') {
         this.getSortedUsers()
       }
     }
@@ -85,6 +85,4 @@ export default {
     margin: auto;
     justify-content: center;
   }
-
-
 </style>

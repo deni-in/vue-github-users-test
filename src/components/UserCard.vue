@@ -23,7 +23,7 @@ export default {
 }
 .list__card-img {
   width: 100%;
-  border-radius: 100px;
+  border-radius: 50%;
   border: solid black 1px;
 }
 </style>
