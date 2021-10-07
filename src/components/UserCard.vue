@@ -1,6 +1,6 @@
 <template>
   <div class="list__card">
-    <img v-bind:src="user.avatar_url" class="list__card-img" />
+    <img @click="$router.push(`/user/${user.id}`)" v-bind:src="user.avatar_url" class="list__card-img" />
     <h3>{{ user.login }}</h3>
   </div>
 </template>

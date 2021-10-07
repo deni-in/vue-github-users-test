@@ -5,6 +5,7 @@ export default createStore({
   state: () => {
     return {
       users: [],
+      user: {},
       login: '',
       loading: false,
       page: 1,
@@ -47,6 +48,9 @@ export default createStore({
     },
     setResetSelectedSort(state) {
       state.selectedSort = ''
+    },
+    setUser(state, user) {
+      state.user = user
     }
   },
   actions: {
@@ -105,6 +109,11 @@ export default createStore({
       } finally {
         commit('setLoading', false)
       }
-    }
+    },
+    // async getOneUser({state, commit}) {
+    //   try {
+    //     const res = await axios.get(`https://api.github.com/users/deni`)
+    //   }
+    // }
   }
 })
