@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="content">
+    <div >
       <div v-if="!loading">
         <UsersList />
       </div>

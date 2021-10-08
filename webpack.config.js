@@ -10,7 +10,8 @@ module.exports = {
   entry: "./main.js",
 
   output: {
-    // path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+    path: path.resolve(__dirname, 'dist'),
     filename: "[contenthash].bundle.js",
   },
 
@@ -55,5 +56,6 @@ module.exports = {
 
   devServer: {
     port: 9000,
+    historyApiFallback: true
   }
 }

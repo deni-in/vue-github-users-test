@@ -6,6 +6,7 @@ export default createStore({
     return {
       users: [],
       user: {},
+      userLogin: '',
       login: '',
       loading: false,
       page: 1,
@@ -50,7 +51,10 @@ export default createStore({
       state.selectedSort = ''
     },
     setUser(state, user) {
-      state.user = user
+      state.user = user.data
+    },
+    setUserLogin(state, login) {
+      state.userLogin = login
     }
   },
   actions: {
@@ -110,10 +114,13 @@ export default createStore({
         commit('setLoading', false)
       }
     },
-    // async getOneUser({state, commit}) {
-    //   try {
-    //     const res = await axios.get(`https://api.github.com/users/deni`)
-    //   }
-    // }
+    async getOneUser({state, commit}) {
+      try {
+        const res = await axios.get(`https://api.github.com/users/${state.userLogin}`)
+        commit('setUser', res)
+      } catch (e) {
+        console.log("Ошибка:" + e.message)
+      }
+    }
   }
 })

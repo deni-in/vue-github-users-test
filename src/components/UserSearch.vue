@@ -6,7 +6,7 @@
           :model-value="login"
           @update:model-value="setLogin"
       />
-      <my-button @click="getUsers">Поиск</my-button>
+      <my-button @click="getUsers(); $router.push(`/`)">Поиск</my-button>
     </form>
   </div>
 </template>
