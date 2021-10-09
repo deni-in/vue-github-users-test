@@ -4,7 +4,11 @@
          v-bind:src="user.avatar_url"
          class="list__card-img"
     />
-    <h3>{{ user.login }}</h3>
+    <h1
+        @click="$router.push(`/user/${user.login}`); setUserLogin(user.login)"
+    >
+      {{ user.login }}
+    </h1>
   </div>
 </template>
 
@@ -31,10 +35,14 @@ export default {
 .list__card {
   width: 250px;
   text-align: center;
+  background: #06091f;
+  margin-top: 15px;
+  border-radius: 3%;
+  color: #fafafa;
+  cursor: pointer;
 }
 .list__card-img {
   width: 100%;
-  border-radius: 50%;
-  border: solid black 1px;
+  border-radius: 3% 3% 0 0 ;
 }
 </style>

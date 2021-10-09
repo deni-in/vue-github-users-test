@@ -6,6 +6,7 @@ export default createStore({
     return {
       users: [],
       user: {},
+      userRepos:[],
       userLogin: '',
       login: '',
       loading: false,
@@ -51,10 +52,13 @@ export default createStore({
       state.selectedSort = ''
     },
     setUser(state, user) {
-      state.user = user.data
+      state.user = user
     },
     setUserLogin(state, login) {
       state.userLogin = login
+    },
+    setUserRepos(state, repos) {
+      state.userRepos = repos
     }
   },
   actions: {
@@ -116,11 +120,22 @@ export default createStore({
     },
     async getOneUser({state, commit}) {
       try {
+        commit('setLoading', true)
         const res = await axios.get(`https://api.github.com/users/${state.userLogin}`)
-        commit('setUser', res)
+        commit('setUser', res.data)
+      } catch (e) {
+        console.log("Ошибка:" + e.message)
+      } finally {
+        commit('setLoading', false)
+      }
+    },
+    async getUserRepos({state, commit}) {
+      try {
+        const res = await axios.get(`https://api.github.com/users/${state.userLogin}/repos`)
+        commit('setUserRepos', res.data)
       } catch (e) {
         console.log("Ошибка:" + e.message)
       }
-    }
+    },
   }
 })

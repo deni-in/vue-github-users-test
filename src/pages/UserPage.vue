@@ -1,45 +1,68 @@
 <template>
   <div class="page">
-    <div class="list__card">
-      <img
-           v-bind:src="user.avatar_url"
-           class="list__card-img"
-      />
-      <h3>{{ user.login }}</h3>
+    <div class="user">
+      <img v-bind:src="user.avatar_url" class="user-img" />
+      <h3>{{ user.name }}</h3>
+      <h4>{{ user.login }}</h4>
+      <h4>Location: {{ user.location }}</h4>
+      <h4>Company: {{ user.company }}</h4>
+      <h4>Following: {{ user.following }}</h4>
+      <h4>Followers: {{ user.followers }}</h4>
+    </div>
+    <div class="user__repos">
+      <ul>
+        <li v-for="repo in userRepos" :repo="repo" :key="repo.id">
+          {{repo.name}}
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapState } from "vuex";
 
 export default {
   name: "UserPage",
   computed: {
     ...mapState({
-      user: state => state.user
-    })
+      user: (state) => state.user,
+      userRepos: state => state.userRepos
+    }),
   },
-  methods:{
+  methods: {
     ...mapActions({
-      getOneUser: 'getOneUser',
-    })
+      getOneUser: "getOneUser",
+      getUserRepos: "getUserRepos"
+    }),
   },
   mounted() {
-    this.getOneUser()
-  }
-}
+    this.getOneUser();
+    this.getUserRepos()
+  },
+};
 </script>
 
 <style scoped>
-.list__card {
-  width: 250px;
-  text-align: center;
-  margin: auto;
+* {
+  margin: 0;
+  padding: 0;
 }
-.list__card-img {
+.page {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: space-between;
+}
+.user {
+  width: 30%;
+}
+.user-img {
   width: 100%;
-  border-radius: 50%;
+  border-radius: 1%;
   border: solid black 1px;
+}
+.user__repos {
+  width: 60%;
 }
 </style>

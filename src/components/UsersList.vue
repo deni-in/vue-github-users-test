@@ -1,7 +1,7 @@
 <template>
   <div  v-if="users.length > 0">
     <div>
-      <h3>Список пользователей</h3>
+      <h1>Список пользователей</h1>
     </div>
     <div class="list">
       <user-card v-for="user in users" :user="user" :key="user.id"/>

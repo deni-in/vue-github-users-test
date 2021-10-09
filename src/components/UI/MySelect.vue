@@ -1,7 +1,7 @@
 <template>
   <select v-model="modelValue" @change="changeOption">
     <option disabled value="">
-      Выберите из списка
+      Сортировать по количеству репозиториев
     </option>
     <option
         v-for="option in options"
