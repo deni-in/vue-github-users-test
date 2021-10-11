@@ -2,22 +2,33 @@
   <div class="page">
     <div class="user">
       <img v-bind:src="user.avatar_url" class="user-img" />
-      <a class="user-name" :href="user.html_url" target="_blank"><h1>{{ user.name }}</h1></a>
+      <a class="user-name" :href="user.html_url" target="_blank"
+        ><h1>{{ user.name }}</h1></a
+      >
       <h3>{{ user.login }}</h3>
       <h3>Location: {{ user.location }}</h3>
       <h3>Company: {{ user.company }}</h3>
       <h3>Following: {{ user.following }}</h3>
       <h3>Followers: {{ user.followers }}</h3>
     </div>
-      <div class="user__repos">
-        <div class="user__repos-title">
-          <h1>Список репозиториев</h1>
-        </div>
-        <div class="user__repos-list">
-          <a v-for="repo in userRepos" :repo="repo" :key="repo.id" class="user__repos-repo" :href="repo.html_url" target="_blank">{{ repo.name }}</a>
-        </div>
+    <div class="user__repos">
+      <div class="user__repos-title">
+        <h1>Список репозиториев</h1>
+      </div>
+      <div class="user__repos-list">
+        <a
+          class="user__repos-repo"
+          v-for="repo in userRepos"
+          :repo="repo"
+          :key="repo.id"
+          :href="repo.html_url"
+          target="_blank"
+        >
+          {{ repo.name }}
+        </a>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -49,12 +60,12 @@ export default {
   margin: 0;
   padding: 0;
 }
-.user-name{
+.user-name {
   text-decoration: none;
   color: #cccccc;
   transition: 0.3s;
 }
-.user-name:hover{
+.user-name:hover {
   color: wheat;
 }
 .page {
@@ -76,7 +87,7 @@ export default {
   border-radius: 50%;
   border: solid black 1px;
 }
-.user__repos{
+.user__repos {
   margin: 10px;
   width: 60%;
 }
@@ -85,11 +96,11 @@ export default {
   display: flex;
   flex-wrap: wrap;
 }
-.user__repos-title{
+.user__repos-title {
   text-align: center;
   color: #cccccc;
 }
-.user__repos-repo{
+.user__repos-repo {
   margin: 5px;
   font-size: larger;
   font-weight: bold;
@@ -103,7 +114,7 @@ export default {
   cursor: pointer;
   text-decoration: none;
 }
-.user__repos-repo:hover{
+.user__repos-repo:hover {
   transform: scale(1.05);
   background: wheat;
 }

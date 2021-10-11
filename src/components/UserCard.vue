@@ -1,11 +1,18 @@
 <template>
   <div class="list__card">
-    <img @click="$router.push(`/user/${user.login}`); setUserLogin(user.login)"
-         v-bind:src="user.avatar_url"
-         class="list__card-img"
+    <img
+      @click="
+        $router.push(`/user/${user.login}`);
+        setUserLogin(user.login);
+      "
+      v-bind:src="user.avatar_url"
+      class="list__card-img"
     />
     <h1
-        @click="$router.push(`/user/${user.login}`); setUserLogin(user.login)"
+      @click="
+        $router.push(`/user/${user.login}`);
+        setUserLogin(user.login);
+      "
     >
       {{ user.login }}
     </h1>
@@ -13,10 +20,10 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations } from "vuex";
 
 export default {
-  name: 'UserCard',
+  name: "UserCard",
   props: {
     user: {
       type: Object,
@@ -25,9 +32,9 @@ export default {
   },
   methods: {
     ...mapMutations({
-      setUserLogin: 'setUserLogin'
-    })
-  }
+      setUserLogin: "setUserLogin",
+    }),
+  },
 };
 </script>
 
@@ -43,12 +50,12 @@ export default {
   box-shadow: 0 4px 16px #343640;
   transition: 0.3s;
 }
-.list__card:hover{
+.list__card:hover {
   transform: scale(1.1);
   box-shadow: 0 4px 16px #343640;
 }
 .list__card-img {
   width: 100%;
-  border-radius: 3% 3% 0 0 ;
+  border-radius: 3% 3% 0 0;
 }
 </style>

@@ -14,6 +14,7 @@
 import UserCard from "./UserCard";
 import { mapActions, mapState } from "vuex";
 export default {
+  name: "UsersList",
   components: { UserCard },
   computed: {
     ...mapState({
@@ -38,12 +39,17 @@ export default {
 </script>
 
 <style scoped>
-.title{
+.title {
   text-align: center;
 }
 .list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+@media screen and (max-width: 499px) {
+  .list {
+    justify-content: center;
+  }
 }
 </style>

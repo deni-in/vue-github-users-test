@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div >
+    <div>
       <div v-if="!loading">
         <UsersList />
       </div>
-      <div v-else><my-preloader/></div>
+      <div v-else><my-preloader /></div>
       <div ref="observer" class="observer" />
     </div>
   </div>
@@ -13,10 +13,10 @@
 <script>
 import UsersList from "../components/UsersList";
 import { mapActions, mapState } from "vuex";
-import MyPreloader from '../components/UI/MyPreloader';
+import MyPreloader from "../components/UI/MyPreloader";
 
 export default {
-  name: "App.vue",
+  name: "MainPage",
   components: { MyPreloader, UsersList },
   computed: {
     ...mapState({

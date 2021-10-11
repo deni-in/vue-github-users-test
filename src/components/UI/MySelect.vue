@@ -11,7 +11,7 @@
 import { mapMutations } from "vuex";
 
 export default {
-  name: "my-select",
+  name: "MySelect",
   props: {
     modelValue: {
       type: String,
@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style scoped>
-.select{
+.select {
   margin: 0;
   position: relative;
   font-size: x-large;

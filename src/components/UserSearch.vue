@@ -21,6 +21,7 @@
 import { mapActions, mapMutations, mapState } from "vuex";
 
 export default {
+  name: "UserSearch",
   computed: {
     ...mapState({
       login: (state) => state.login,

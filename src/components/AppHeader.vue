@@ -16,7 +16,7 @@ import UserSearch from "./UserSearch";
 import MySelect from "../components/UI/MySelect";
 
 export default {
-  name: "header",
+  name: "app-header",
   components: { MySelect, UserSearch },
 };
 </script>
