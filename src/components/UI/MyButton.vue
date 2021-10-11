@@ -18,6 +18,7 @@ export default {
   margin-left: 30px;
 }
 button {
+  font-weight: bold;
   height: 36px;
   text-transform: uppercase;
   cursor: pointer;
@@ -27,7 +28,6 @@ button {
   transition: 0.3s;
 }
 button:hover {
-  color: #e0e0e0;
-  background: #343640;
+  background: wheat;
 }
 </style>

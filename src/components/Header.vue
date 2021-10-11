@@ -34,7 +34,7 @@ export default {
   transition: 0.3s;
 }
 .header__link:hover {
-  color: #e0e0e0;
+  color: wheat;
 }
 .header__title {
   text-align: center;

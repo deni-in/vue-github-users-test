@@ -15,8 +15,8 @@ export default createStore({
       totalPages: 0,
       selectedSort: "",
       sortOptions: [
-        { value: "bigToSmall", name: "По убыванию" },
-        { value: "smallToBig", name: "По возрастанию" },
+        { value: "bigToSmall", name: "По убыванию ↓" },
+        { value: "smallToBig", name: "По возрастанию ↑" },
       ],
     };
   },

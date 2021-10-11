@@ -40,11 +40,12 @@ export default {
   border-radius: 3%;
   color: #fafafa;
   cursor: pointer;
-  box-shadow: 0 4px 16px #ccc;
+  box-shadow: 0 4px 16px #343640;
   transition: 0.3s;
 }
 .list__card:hover{
   transform: scale(1.1);
+  box-shadow: 0 4px 16px #343640;
 }
 .list__card-img {
   width: 100%;
