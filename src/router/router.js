@@ -1,21 +1,21 @@
-import Main from '../pages/Main';
-import { createRouter, createWebHistory } from "vue-router"
-import UserPage from '../pages/UserPage';
+import Main from "../pages/Main";
+import { createRouter, createWebHistory } from "vue-router";
+import UserPage from "../pages/UserPage";
 
 const routes = [
   {
-    path: '/',
-    component: Main
+    path: "/",
+    component: Main,
   },
   {
-    path: '/user/:login',
-    component: UserPage
-  }
-]
+    path: "/user/:login",
+    component: UserPage,
+  },
+];
 
 const router = createRouter({
   routes,
-  history: createWebHistory()
-})
+  history: createWebHistory(),
+});
 
-export default router
+export default router;

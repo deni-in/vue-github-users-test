@@ -1,34 +1,33 @@
 <template>
   <div class="app">
-    <Header/>
+    <Header />
     <div class="content">
-      <router-view/>
+      <router-view />
     </div>
   </div>
 </template>
 
 <script>
-import Header from './components/Header';
+import Header from "./components/Header";
 export default {
   name: "App.vue",
   components: { Header },
-}
+};
 </script>
 
 <style>
-  .app {
-    max-width: 1140px;
-    margin: auto;
-    justify-content: center;
-  }
-  .header {
-    max-width: 80%;
-    margin: auto;
-    justify-content: center;
-  }
-  .content {
-    max-width: 80%;
-    margin: auto;
-    justify-content: center;
-  }
+* {
+  margin: 0;
+}
+.app {
+  max-width: 1280px;
+  margin: auto;
+  justify-content: center;
+}
+
+.content {
+  max-width: 100%;
+  margin: auto;
+  justify-content: center;
+}
 </style>

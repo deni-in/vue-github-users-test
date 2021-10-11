@@ -12,7 +12,7 @@
     <div class="user__repos">
       <ul>
         <li v-for="repo in userRepos" :repo="repo" :key="repo.id">
-          {{repo.name}}
+          {{ repo.name }}
         </li>
       </ul>
     </div>
@@ -27,18 +27,18 @@ export default {
   computed: {
     ...mapState({
       user: (state) => state.user,
-      userRepos: state => state.userRepos
+      userRepos: (state) => state.userRepos,
     }),
   },
   methods: {
     ...mapActions({
       getOneUser: "getOneUser",
-      getUserRepos: "getUserRepos"
+      getUserRepos: "getUserRepos",
     }),
   },
   mounted() {
     this.getOneUser();
-    this.getUserRepos()
+    this.getUserRepos();
   },
 };
 </script>

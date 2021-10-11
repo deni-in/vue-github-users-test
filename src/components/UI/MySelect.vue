@@ -1,43 +1,43 @@
 <template>
-  <select v-model="modelValue" @change="changeOption">
-    <option disabled value="">
-      Сортировать по количеству репозиториев
-    </option>
-    <option
-        v-for="option in options"
-        :key="option.value"
-        :value=option.value
-    >
+  <select class="select" v-model="modelValue" @change="changeOption">
+    <option disabled value="">Сортировать по количеству репозиториев</option>
+    <option v-for="option in options" :key="option.value" :value="option.value">
       {{ option.name }}
     </option>
   </select>
 </template>
 
 <script>
-import {mapMutations} from "vuex";
+import { mapMutations } from "vuex";
 
 export default {
-  name: 'my-select',
+  name: "my-select",
   props: {
     modelValue: {
-      type: String
+      type: String,
     },
     options: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   methods: {
     ...mapMutations({
-      setSelectedSort: "setSelectedSort"
+      setSelectedSort: "setSelectedSort",
     }),
     changeOption(event) {
-      this.setSelectedSort(event.target.value)
-    }
-  }
-}
+      this.setSelectedSort(event.target.value);
+    },
+  },
+};
 </script>
 
 <style scoped>
-
+.select{
+  margin: 0;
+  position: relative;
+  font-size: x-large;
+  border: none;
+  outline: none;
+}
 </style>

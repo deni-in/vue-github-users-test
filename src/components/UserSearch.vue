@@ -1,40 +1,46 @@
 <template>
   <div>
-    <form @submit.prevent class="form">
+    <form class="form" @submit.prevent>
       <my-input
-          type="text"
-          :model-value="login"
-          @update:model-value="setLogin"
+        type="text"
+        :model-value="login"
+        @update:model-value="setLogin"
       />
-      <my-button @click="getUsers(); $router.push(`/`)">Поиск</my-button>
+      <my-button
+        @click="
+          getUsers();
+          $router.push(`/`);
+        "
+        >НАЙТИ</my-button
+      >
     </form>
   </div>
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from 'vuex';
+import { mapActions, mapMutations, mapState } from "vuex";
 
 export default {
   computed: {
     ...mapState({
-      login: state => state.login
-    })
+      login: (state) => state.login,
+    }),
   },
   methods: {
     ...mapActions({
-      getUsers: 'getUsers'
+      getUsers: "getUsers",
     }),
     ...mapMutations({
-      setLogin: 'setLogin'
-    })
-  }
-}
+      setLogin: "setLogin",
+    }),
+  },
+};
 </script>
 
-<style>
-  .form {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
+<style scoped>
+.form {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
 </style>

@@ -35,11 +35,16 @@ export default {
 .list__card {
   width: 250px;
   text-align: center;
-  background: #06091f;
+  background: #343640;
   margin-top: 15px;
   border-radius: 3%;
   color: #fafafa;
   cursor: pointer;
+  box-shadow: 0 4px 16px #ccc;
+  transition: 0.3s;
+}
+.list__card:hover{
+  transform: scale(1.1);
 }
 .list__card-img {
   width: 100%;
